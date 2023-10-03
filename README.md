@@ -5,6 +5,7 @@ codes written ever before
 
 	·Using Python to crawl Baidu migration big data (1.1)
   	·data analysis(1.2)
+   
 2、Data visualization and analysis processing with Python
 
   	·China Undergraduate Mathematical Contest in Modeling_paper with codes attached in the end(2.1)
@@ -12,6 +13,7 @@ codes written ever before
 3、In the course of remote sensing image processing, Python is used to realize some basic image processing algorithms
 
  	·In the attachment(histogram specification(3.1) and Spatial filtering(3.2))
+  
 4、ArcGIS secondary development generate executable .exe file with ArcObjects and C#
 
 ![image](https://github.com/ChinaLyn/Code-Demos/assets/101914917/c52e9392-dc31-4030-9179-6626450b24b2)
