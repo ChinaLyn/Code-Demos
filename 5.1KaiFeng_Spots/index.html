@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>云旅virtual平台</title>
+    <link rel="stylesheet" href="static/bootstrap-5.3.0-alpha1/bootstrap-5.3.0-alpha1/dist/css/bootstrap.css">
+    <script src="static/bootstrap-5.3.0-alpha1/bootstrap-5.3.0-alpha1/dist/js/bootstrap.js"></script>
+    <link rel="stylesheet" href="https://js.arcgis.com/4.25/esri/themes/light/main.css">
+    <script src="https://js.arcgis.com/4.25/"></script>
+    <style>
+        #viewDiv {
+            padding: 0;
+            margin: 0;
+            height: 600px;
+
+        }
+
+        #LegendDiv {
+            background-color: white;
+            padding: 10px;
+            max-height: 350px;
+            width: 150px;
+            overflow: auto;
+        }
+    </style>
+    <script>
+
+        require([
+            "esri/config",
+            "esri/WebMap",
+            "esri/views/MapView",
+            "esri/layers/FeatureLayer",
+            "esri/widgets/Legend",
+            "esri/widgets/BasemapToggle",
+            "esri/widgets/BasemapGallery"
+
+        ], function (esriConfig, WebMap, MapView, FeatureLayer, Legend, BasemapToggle, BasemapGallery) {
+
+            // Set the hostname to the on-premise portal
+            esriConfig.portalUrl = "https://chsrovocgmtd1h9a.maps.arcgis.com"
+            esriConfig.apiKey = "AAPK4750c939b42f4070a746ba6b22556a4dPacFDlWF-EH25XRwfAg1eV7jhPZO7AXBRpAZijavoAAf6Goh8cC5voQbOfXqdmyk";
+
+            
+            const webmap = new WebMap({
+                portalItem: {
+                    id: "0e616fca78264317b40e87bdd657b34d"
+                }
+
+            });
+
+
+            const view = new MapView({
+                container: "viewDiv",
+                map: webmap,
+
+                 center: [114.37, 34.80],
+                 zoom: 14
+            });
+
+            const Spot_layer = new FeatureLayer({
+            url: "https://services6.arcgis.com/a8oVezXxwRBB2fiw/arcgis/rest/services/KaiFeng_Famous_Spots/FeatureServer/0",
+
+            });
+            // const Area_layer = new FeatureLayer({
+            //     url: "https://services6.arcgis.com/a8oVezXxwRBB2fiw/arcgis/rest/services/KaiFeng_Famous_Spots/FeatureServer/1",
+            // });
+
+
+            // map.add(Spot_layer);
+            // map.add(Area_layer, 0);
+
+
+
+            const basemapToggle = new BasemapToggle({
+                view: view,
+                nextBasemap: "arcgis-imagery"
+            });
+
+            view.ui.add(basemapToggle, "bottom-right");
+
+            const basemapGallery = new BasemapGallery({
+                view: view,
+                source: {
+                    query: {
+                        title: '"World Basemaps for Developers" AND owner:esri'
+                    }
+                }
+            });
+            
+            const legend = new Legend({
+                view: view,
+                layerInfos: [
+                    {
+                        layer: Spot_layer,
+                        title: "开封著名景点",
+                        legendEnabled: true,
+                    }
+                ],
+                container: "LegendDiv"
+
+            });
+            // view.ui.add(legend, "bottom-left")
+
+            view.ui.add(basemapGallery, "top-right"); // Add to the view
+
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom">
+            <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto text-dark text-decoration-none">
+                <svg class="bi me-2" width="40" height="32">
+                    <use xlink:href="#bootstrap"></use>
+                </svg>
+                <span class="fs-4">云旅virtual</span>
+            </a>
+
+            <ul class="nav nav-pills">
+                <li class="nav-item"><a href="index.html" class="nav-link active" aria-current="page">首页</a></li>
+                <li class="nav-item"><a href="spots.html" class="nav-link">景点</a></li>
+                <li class="nav-item"><a href="plan.html" class="nav-link">智能规划</a></li>
+                <li class="nav-item"><a href="#" class="nav-link">用户</a></li>
+            </ul>
+        </header>
+        <div id="viewDiv"></div>
+        <div id="LegendDiv"></div>
+    </div>
+
+
+</body>
+
+</html>
