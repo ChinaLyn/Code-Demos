@@ -11,7 +11,7 @@ data analysis(1.2)
 
 China Undergraduate Mathematical Contest in Modeling_paper with codes attached in the end(2.1)
 
-3、In the course of remote sensing image processing, Python is used to realize some basic image processing algorithms
+3、In the course of remote sensing image processing, Python is used to realize some basic image processing algorithms（3.1，3.2）
 
 
   
