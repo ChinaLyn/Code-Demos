@@ -13,13 +13,13 @@ China Undergraduate Mathematical Contest in Modeling_paper with codes attached i
 
 3、In the course of remote sensing image processing, Python is used to realize some basic image processing algorithms
 
-In the attachment(histogram specification(3.1) and Spatial filtering(3.2))
+
   
-4、ArcGIS secondary development generate executable .exe file with ArcObjects and C#
+4、ArcGIS secondary development generate executable .exe file with ArcObjects and C#（4.1）
 
 ![image](https://github.com/ChinaLyn/Code-Demos/assets/101914917/c52e9392-dc31-4030-9179-6626450b24b2)
 
-(The codes(4.1) can be found in the attachment and I also attach my coursework with Code execution presentation(4.2))
+
 
 5、website development
 
